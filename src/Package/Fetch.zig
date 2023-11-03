@@ -1255,7 +1255,7 @@ pub fn renameTmpIntoCache(
                 };
                 continue;
             },
-            error.PathAlreadyExists, error.AccessDenied => {
+            error.PathAlreadyExists, error.AccessDenied, error.SystemResources => {
                 // Package has been already downloaded and may already be in use on the system.
                 cache_dir.deleteTree(tmp_dir_sub_path) catch {
                     // Garbage files leftover in zig-cache/tmp/ is, as they say
